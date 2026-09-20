@@ -146,22 +146,42 @@ const experiences = [
   },
 ]
 
-const skillCategories = [
+const technicalSkills = [
   {
-    title: 'Virtualization & Cloud Platforms',
-    skills: ['VMware vSphere / ESXi', 'Proxmox VE', 'KVM Hypervisor', 'Apache CloudStack', 'OpenStack (Kolla-Ansible)', 'Biznet Gio Cloud'],
+    title: 'Virtualization',
+    description:
+      'Managing and maintaining enterprise virtualization environments utilizing Proxmox VE and VMware.',
+    skills: ['Proxmox VE', 'VMware vSphere / ESXi', 'KVM Hypervisor', 'HA Clusters', 'Resource Allocation'],
   },
   {
-    title: 'Enterprise Storage & Linux Infrastructure',
-    skills: ['Ceph Storage Cluster', 'Enterprise Storage / SAN', 'Ubuntu / Debian', 'RHEL / CentOS', 'System Hardening', 'LVM & ZFS'],
+    title: 'Linux Administration',
+    description:
+      'Administration and in-depth troubleshooting of Linux servers, system services, filesystems, processes, and system resources.',
+    skills: ['Ubuntu / Debian', 'RHEL / CentOS', 'Systemd & Services', 'LVM & Filesystems', 'System Hardening'],
   },
   {
-    title: 'DevOps, Automation & Containers',
-    skills: ['Docker & Docker Compose', 'Kubernetes', 'Ansible Automation', 'GitLab CI/CD', 'Bash Scripting', 'AI-Driven Operations'],
+    title: 'Cloud Infrastructure',
+    description:
+      'Managing, provisioning, and troubleshooting enterprise cloud platforms using Apache CloudStack and OpenStack.',
+    skills: ['Apache CloudStack', 'OpenStack', 'Compute & Storage Provisioning', 'Multi-tenant SDN', 'High Availability'],
   },
   {
-    title: 'Observability & Operations',
-    skills: ['Prometheus & Grafana', 'ELK Stack (Logging)', 'Production Incident Handling', 'Capacity Planning', 'Performance Optimization'],
+    title: 'Infrastructure Troubleshooting',
+    description:
+      'Deep-dive analysis of system logs, performance metrics, services, network, storage, and system performance to resolve critical incidents in production environments.',
+    skills: ['Production Incidents', 'Log Analysis', 'Performance Tuning', 'Network Diagnostics', 'Root Cause Analysis'],
+  },
+  {
+    title: 'Monitoring & Observability',
+    description:
+      'Experienced in deploying and managing Prometheus, Grafana, Alertmanager, and Zabbix for comprehensive infrastructure monitoring and proactive alerting.',
+    skills: ['Prometheus', 'Grafana', 'Alertmanager', 'Zabbix', 'Metric Dashboards', 'Proactive Alerts'],
+  },
+  {
+    title: 'Automation & Scripting',
+    description:
+      'Developing automation scripts with Python and Bash to support infrastructure monitoring, system verification, automated reporting, and routine operational tasks.',
+    skills: ['Python', 'Bash Scripting', 'Task Automation', 'Health Verification', 'Automated Reporting'],
   },
 ]
 
@@ -391,7 +411,7 @@ export default function About() {
             </div>
           </section>
 
-          {/* Key Skills & Technologies Grid */}
+          {/* Key Technical Skills Grid (In English with Descriptions) */}
           <section className="space-y-6">
             <div className="flex items-center justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
               <h2 className="text-2xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
@@ -402,20 +422,25 @@ export default function About() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {skillCategories.map((category) => (
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              {technicalSkills.map((item) => (
                 <div
-                  key={category.title}
-                  className="rounded-xl border border-zinc-200/80 bg-white p-5 shadow-2xs transition hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-800/40 dark:hover:border-zinc-700"
+                  key={item.title}
+                  className="group flex flex-col justify-between rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-2xs transition hover:border-zinc-300 dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700"
                 >
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-900 dark:text-zinc-100">
-                    {category.title}
-                  </h3>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {category.skills.map((skill) => (
+                  <div className="space-y-2">
+                    <h3 className="text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                  <div className="mt-4 flex flex-wrap gap-1.5 border-t border-zinc-100 pt-3 dark:border-zinc-800/60">
+                    {item.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="inline-flex rounded-lg border border-dashed border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-700/80 dark:bg-zinc-800/80 dark:text-zinc-300"
+                        className="inline-flex rounded-md border border-dashed border-zinc-200 bg-zinc-50 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:border-zinc-700/80 dark:bg-zinc-800/50 dark:text-zinc-300"
                       >
                         {skill}
                       </span>
