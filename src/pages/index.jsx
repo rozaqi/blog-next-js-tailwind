@@ -274,14 +274,7 @@ export default function Home() {
               </p>
 
               <p className="text-base font-light leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg">
-                Hands-on with technologies including{' '}
-                <TechBadge color="teal">VMware</TechBadge>,{' '}
-                <TechBadge color="amber">Proxmox</TechBadge>,{' '}
-                <TechBadge color="sky">KVM</TechBadge>,{' '}
-                <TechBadge color="teal">Apache CloudStack</TechBadge>,{' '}
-                <TechBadge color="rose">OpenStack</TechBadge>,{' '}
-                <TechBadge color="emerald">Ceph</TechBadge>,{' '}
-                <TechBadge color="sky">Docker</TechBadge>, and monitoring platforms.
+                Hands-on with technologies including VMware, Proxmox, KVM, Apache CloudStack, OpenStack, Ceph, Docker, and monitoring platforms.
                 Passionate about building reliable, scalable, and efficient systems while continuously exploring AI-driven operations and automation.
               </p>
 
