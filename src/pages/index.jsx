@@ -10,20 +10,6 @@ import {
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/foto.jpg'
 
-function MailIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
-      <path
-        d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
 
 function ArrowUpRightIcon(props) {
   return (
@@ -211,7 +197,7 @@ export default function Home() {
                     Open to Collaboration
                   </span>
                   <span>•</span>
-                  <span>Bandung / Cimahi, Indonesia</span>
+                  <span>Jakarta, Indonesia</span>
                 </div>
                 <div className="flex items-center gap-4 pt-1">
                   <Link
@@ -231,13 +217,6 @@ export default function Home() {
                     title="LinkedIn"
                   >
                     <LinkedInIcon className="h-5 w-5 fill-current" />
-                  </Link>
-                  <Link
-                    href="mailto:rozaqiwt@gmail.com"
-                    className="text-zinc-500 transition hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-100"
-                    title="Email"
-                  >
-                    <MailIcon className="h-5 w-5 fill-current" />
                   </Link>
                 </div>
               </div>
@@ -285,13 +264,6 @@ export default function Home() {
                 >
                   <span>Read Blog</span>
                   <ArrowUpRightIcon className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="mailto:rozaqiwt@gmail.com"
-                  className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-800 shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800/70 dark:text-zinc-200 dark:hover:bg-zinc-700"
-                >
-                  <MailIcon className="h-4 w-4" />
-                  <span>Get in touch</span>
                 </Link>
                 <Link
                   href="https://github.com/rozaqi"
