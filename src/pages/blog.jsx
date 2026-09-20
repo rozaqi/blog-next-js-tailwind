@@ -191,7 +191,7 @@ export default function Blog({ data }) {
   return (
     <>
       <Head>
-        <title>Blog - Abdul Rozaqi Wildan</title>
+        <title>Abdul Rozaqi Wildan - Systems Operations Engineer</title>
         <meta
           name="description"
           content="Articles and writing on Linux, Cloud Platforms, Virtualization, and Systems Operations."
