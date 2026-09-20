@@ -24,8 +24,25 @@ export function Footer() {
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/blog">Blog</NavLink>
               </div>
-              <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                &copy; {new Date().getFullYear()} Abdul Rozaqi Wildan · Powered by <a href='https://nextjs.org/'>Next.JS</a> & <a href='https://tailwindui.com/'>Tailwind CSS</a>.
+              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                &copy; {new Date().getFullYear()} Abdul Rozaqi Wildan · Powered by{' '}
+                <a
+                  href="https://nextjs.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-2 transition hover:text-teal-600 dark:text-zinc-300 dark:decoration-zinc-600 dark:hover:text-teal-400"
+                >
+                  Next.JS
+                </a>{' '}
+                &{' '}
+                <a
+                  href="https://tailwindui.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-2 transition hover:text-teal-600 dark:text-zinc-300 dark:decoration-zinc-600 dark:hover:text-teal-400"
+                >
+                  Tailwind CSS
+                </a>.
               </p>
             </div>
           </Container.Inner>

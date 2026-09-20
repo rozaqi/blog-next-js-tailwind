@@ -74,7 +74,7 @@ function Article({ article, loading }) {
         as="time"
         dateTime={article.date}
         decorate
-        className="dark:text-zinc-500"
+        className="dark:text-zinc-400"
       >
         {formatDate(article.date)}
       </Card.Eyebrow>

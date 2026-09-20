@@ -192,7 +192,7 @@ export default function Home() {
                   <CheckBadgeIcon className="h-6 w-6 text-teal-500 dark:text-teal-400" title="Verified Professional" />
                 </div>
                 <div className="flex items-center gap-3 text-sm text-zinc-600 dark:text-zinc-400">
-                  <span className="flex items-center gap-1.5 font-medium text-emerald-600 dark:text-emerald-400">
+                  <span className="flex items-center gap-1.5 font-medium text-emerald-700 dark:text-emerald-400">
                     <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                     Open to Collaboration
                   </span>
@@ -282,10 +282,10 @@ export default function Home() {
           <section className="overflow-hidden rounded-2xl border border-dashed border-zinc-300 bg-zinc-50/70 p-6 shadow-sm dark:border-zinc-700/80 dark:bg-zinc-800/30 sm:p-8">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-600 dark:text-teal-400">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700 dark:text-teal-400">
                   Featured Focus & Mission
                 </p>
-                <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
+                <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-800 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
                   Reliability & AI Ops
                 </span>
               </div>
@@ -323,7 +323,7 @@ export default function Home() {
               <h2 className="text-2xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
                 Experience
               </h2>
-              <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
+              <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                 Career History
               </span>
             </div>
@@ -339,7 +339,7 @@ export default function Home() {
                       <h3 className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
                         {exp.role}
                       </h3>
-                      <p className="text-sm font-medium text-teal-600 dark:text-teal-400">
+                      <p className="text-sm font-medium text-teal-700 dark:text-teal-400">
                         {exp.company}
                       </p>
                     </div>
@@ -352,7 +352,7 @@ export default function Home() {
                         <span className="inline-flex rounded-full border border-zinc-200 bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
                           {exp.duration}
                         </span>
-                        <span className="inline-flex rounded-full border border-teal-200 bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-700 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
+                        <span className="inline-flex rounded-full border border-teal-200 bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-800 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
                           {exp.employmentType}
                         </span>
                       </div>
@@ -360,7 +360,7 @@ export default function Home() {
                   </div>
 
                   <div className="mt-2 flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400">
-                    <MapPinIcon className="h-3.5 w-3.5 flex-none text-zinc-400 dark:text-zinc-500" />
+                    <MapPinIcon className="h-3.5 w-3.5 flex-none text-zinc-500 dark:text-zinc-400" />
                     <span>{exp.location}</span>
                   </div>
                 </div>
@@ -374,7 +374,7 @@ export default function Home() {
               <h2 className="text-2xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
                 Technical Skills
               </h2>
-              <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
+              <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                 Core Competencies
               </span>
             </div>
@@ -414,7 +414,7 @@ export default function Home() {
               <h2 className="text-2xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
                 Connect
               </h2>
-              <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
+              <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
                 Online Presence
               </span>
             </div>

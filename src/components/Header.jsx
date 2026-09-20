@@ -146,7 +146,7 @@ function NavItem({ href, children }) {
         className={clsx(
           'rounded-full px-3.5 py-1.5 text-sm font-medium transition',
           isActive
-            ? 'bg-zinc-100 font-semibold text-teal-600 dark:bg-zinc-800 dark:text-teal-400'
+            ? 'bg-zinc-100 font-semibold text-teal-700 dark:bg-zinc-800 dark:text-teal-400'
             : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/50 dark:hover:text-zinc-100'
         )}
       >
