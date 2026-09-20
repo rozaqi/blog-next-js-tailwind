@@ -49,6 +49,18 @@ function CheckBadgeIcon(props) {
   )
 }
 
+function MapPinIcon(props) {
+  return (
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.588a13.06 13.06 0 0 0 2.274 1.765c.311.192.571.337.757.433.114.06.204.103.255.127.026.012.046.02.057.025l.008.003.002.001ZM10 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  )
+}
+
 function TechBadge({ children, color = 'teal' }) {
   return (
     <span className="mx-1 inline-flex items-center gap-1 rounded-md border border-dashed border-zinc-300 bg-zinc-50 px-2 py-0.5 text-xs font-medium text-zinc-800 transition-colors hover:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-200 dark:hover:border-zinc-600 sm:text-sm">
@@ -67,39 +79,89 @@ function TechBadge({ children, color = 'teal' }) {
 
 const experiences = [
   {
+    company: 'Biznet Gio Cloud (PT Biznet Gio Nusantara)',
+    companyShort: 'Biznet Gio Cloud',
+    role: 'System Operations Engineer',
+    employmentType: 'Contract',
     period: 'Jan 2023 — Present',
-    role: 'Systems Operations Engineer',
-    company: 'PT. Biznet Gio Cloud',
-    description:
-      'Responsible for production cloud infrastructure management, enterprise virtualization platforms, Ceph storage clusters, capacity planning, and critical incident resolution across multi-tenant environments.',
-    tags: ['OpenStack', 'Apache CloudStack', 'VMware', 'KVM', 'Ceph', 'Monitoring'],
+    duration: '3 yrs 9 mos',
+    location: 'Central Jakarta, Jakarta, Indonesia · Hybrid',
+    highlights: [
+      'Managing overall Biznet GIO Hosting, Email, and DNS Products for both internal and external users.',
+      'Executing daily health checks, proactive monitoring, system patching, OS upgrades, and troubleshooting.',
+      'Handling critical incident escalations from L1 and L2 Team members via internal ticketing systems.',
+      'Responsible for planning infrastructure growth, ongoing maintenance, and debugging production issues across services.',
+    ],
+    tags: ['Hosting & Email', 'DNS Products', 'Incident Escalation', 'Capacity Planning', 'Production Ops', 'OpenStack'],
   },
   {
-    period: 'Jan 2022 — Jan 2023',
+    company: 'Boer Technology (Btech)',
+    companyShort: 'Boer Technology (Btech)',
     role: 'Cloud Operations Engineer',
-    company: 'PT. Boer Technology (Btech)',
-    description:
-      'Operated Linux server fleets, cloud provisioning, routine maintenance automation, and client infrastructure monitoring ensuring performance optimization and uptime.',
-    tags: ['Linux', 'Cloud Platforms', 'Docker', 'Bash Automation', 'DevOps'],
+    employmentType: 'Full-time',
+    period: 'Jan 2022 — Jan 2023',
+    duration: '1 yr 1 mo',
+    location: 'Bogor, West Java, Indonesia',
+    highlights: [
+      'Responsible for monitoring, maintaining, and troubleshooting cloud infrastructure based on OpenStack.',
+      'Provision and configure cloud resources including compute, storage, and networking services.',
+      'Handle Level 1 incidents and escalate complex issues to higher-level engineers when necessary.',
+      'Ensure system availability and performance through continuous monitoring and routine checks.',
+      'Document configurations, incidents, and resolutions to maintain an up-to-date knowledge base.',
+      'Collaborate with internal teams to support cloud deployment and operational activities.',
+    ],
+    tags: ['OpenStack', 'Compute & Storage', 'Networking', 'Incident Escalation', 'Monitoring'],
+  },
+  {
+    company: 'Boer Technology (Btech)',
+    companyShort: 'Boer Technology (Btech)',
+    role: 'Student Internship — DevOps Track',
+    employmentType: 'Internship',
+    period: 'Aug 2021 — Dec 2021',
+    duration: '5 mos',
+    location: 'Kota Bogor, West Java, Indonesia',
+    highlights: [
+      'Completed the DevOps learning track at Adinusa, mastering CI/CD, containerization, and observability.',
+      'Implemented automated GitLab CI/CD pipelines for application testing and deployment.',
+      'Configured proactive monitoring and metrics visualization using Prometheus and Grafana.',
+      'Integrated ELK Stack (Elasticsearch, Logstash, Kibana) for centralized log aggregation.',
+      'Project: Deployed a production-ready CodeIgniter web application using Docker Compose and GitLab CI/CD.',
+    ],
+    tags: ['DevOps', 'GitLab CI/CD', 'Prometheus', 'Grafana', 'ELK Stack', 'Docker Compose'],
+  },
+  {
+    company: 'Boer Technology (Btech)',
+    companyShort: 'Boer Technology (Btech)',
+    role: 'Professional Intern — Cloud Engineer Track',
+    employmentType: 'Internship',
+    period: 'Jun 2021 — Aug 2021',
+    duration: '3 mos',
+    location: 'Bogor, West Java, Indonesia',
+    highlights: [
+      'Completed the Cloud Engineer track at Adinusa (Bootcamp Batch 1), covering Linux System Administration, Docker, Ansible, Kubernetes, OpenStack, and Ceph.',
+      'Migrated virtual machines seamlessly from VMware ESXi hypervisors to OpenStack.',
+      'Built a high-availability OpenStack cluster using Kolla-Ansible with Ceph as backend distributed storage.',
+    ],
+    tags: ['Cloud Engineer', 'Kolla-Ansible', 'Ceph Storage', 'VMware to OpenStack', 'Docker', 'Kubernetes'],
   },
 ]
 
 const skillCategories = [
   {
-    title: 'Virtualization & Cloud',
-    skills: ['VMware vSphere', 'Proxmox VE', 'KVM Hypervisor', 'Apache CloudStack', 'OpenStack', 'Biznet Gio Cloud'],
+    title: 'Virtualization & Cloud Platforms',
+    skills: ['VMware vSphere / ESXi', 'Proxmox VE', 'KVM Hypervisor', 'Apache CloudStack', 'OpenStack (Kolla-Ansible)', 'Biznet Gio Cloud'],
   },
   {
-    title: 'Storage & Linux Infrastructure',
-    skills: ['Ceph Storage', 'Enterprise Storage / SAN', 'Ubuntu / Debian', 'RHEL / CentOS', 'System Hardening', 'LVM & ZFS'],
+    title: 'Enterprise Storage & Linux Infrastructure',
+    skills: ['Ceph Storage Cluster', 'Enterprise Storage / SAN', 'Ubuntu / Debian', 'RHEL / CentOS', 'System Hardening', 'LVM & ZFS'],
   },
   {
-    title: 'Automation & Containers',
-    skills: ['Docker', 'Infrastructure Automation', 'Bash Scripting', 'Ansible', 'CI/CD Pipelines', 'AI-Driven Operations'],
+    title: 'DevOps, Automation & Containers',
+    skills: ['Docker & Docker Compose', 'Kubernetes', 'Ansible Automation', 'GitLab CI/CD', 'Bash Scripting', 'AI-Driven Operations'],
   },
   {
-    title: 'Reliability & Operations',
-    skills: ['Production Incident Handling', 'Performance Optimization', 'Capacity Planning', 'Prometheus & Grafana', 'High Availability (HA)'],
+    title: 'Observability & Operations',
+    skills: ['Prometheus & Grafana', 'ELK Stack (Logging)', 'Production Incident Handling', 'Capacity Planning', 'Performance Optimization'],
   },
 ]
 
@@ -273,33 +335,56 @@ export default function About() {
               {experiences.map((exp, idx) => (
                 <div
                   key={idx}
-                  className="group rounded-xl border border-transparent p-4 transition hover:border-zinc-200 hover:bg-zinc-50/50 dark:hover:border-zinc-800 dark:hover:bg-zinc-800/20 sm:grid sm:grid-cols-[160px_1fr] sm:gap-6"
+                  className="group rounded-2xl border border-zinc-200/70 bg-white p-5 shadow-2xs transition hover:border-zinc-300 hover:shadow-xs dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700 sm:p-6"
                 >
-                  <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 sm:mb-0 sm:pt-1">
-                    {exp.period}
-                  </p>
-                  <div className="space-y-2">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                     <div>
-                      <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+                      <h3 className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
                         {exp.role}
                       </h3>
                       <p className="text-sm font-medium text-teal-600 dark:text-teal-400">
                         {exp.company}
                       </p>
                     </div>
-                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                      {exp.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 pt-1">
-                      {exp.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-                        >
-                          {tag}
+
+                    <div className="flex flex-wrap items-center gap-2 sm:flex-col sm:items-end sm:gap-1">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                        {exp.period}
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="inline-flex rounded-full bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                          {exp.duration}
                         </span>
-                      ))}
+                        <span className="inline-flex rounded-full bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-700 dark:bg-teal-950/60 dark:text-teal-300">
+                          {exp.employmentType}
+                        </span>
+                      </div>
                     </div>
+                  </div>
+
+                  <div className="mt-2 flex items-center gap-1.5 text-xs text-zinc-500 dark:text-zinc-400">
+                    <MapPinIcon className="h-3.5 w-3.5 flex-none text-zinc-400 dark:text-zinc-500" />
+                    <span>{exp.location}</span>
+                  </div>
+
+                  <ul className="mt-4 space-y-2 border-t border-zinc-100 pt-4 text-sm text-zinc-600 dark:border-zinc-800/60 dark:text-zinc-400">
+                    {exp.highlights.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-teal-500/70" />
+                        <span className="leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-4 flex flex-wrap gap-1.5 border-t border-zinc-100 pt-3 dark:border-zinc-800/60">
+                    {exp.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex rounded-md border border-dashed border-zinc-200 bg-zinc-50 px-2 py-0.5 text-[11px] font-medium text-zinc-600 dark:border-zinc-700/80 dark:bg-zinc-800/50 dark:text-zinc-400"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}
