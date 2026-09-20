@@ -5,6 +5,7 @@ import { ArticlesContext } from '@/context'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import FluidOrb from '@/components/FluidOrb'
 import Pagination from '@/components/Pagination'
 import {
   TwitterIcon,
@@ -199,24 +200,33 @@ export default function Blog({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container className="mt-9">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Writing on Linux, Cloud Infrastructure & Operations.
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 sm:text-lg">
-            Thoughts, technical guides, and architectural notes from managing production systems, virtualization platforms, and enterprise cloud operations.
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://github.com/rozaqi"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/in/abdul-rozaqi-wildan-3196211a6/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
+        <div className="flex flex-col gap-y-8 lg:flex-row lg:items-center lg:gap-x-12">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              Writing on Linux, Cloud Infrastructure & Operations.
+            </h1>
+            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400 sm:text-lg">
+              Thoughts, technical guides, and architectural notes from managing production systems, virtualization platforms, and enterprise cloud operations.
+            </p>
+            <div className="mt-6 flex gap-6">
+              <SocialLink
+                href="https://github.com/rozaqi"
+                aria-label="Follow on GitHub"
+                icon={GitHubIcon}
+              />
+              <SocialLink
+                href="https://www.linkedin.com/in/abdul-rozaqi-wildan-3196211a6/"
+                aria-label="Follow on LinkedIn"
+                icon={LinkedInIcon}
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-start">
+            <div className="relative flex items-center justify-center">
+              {/* Subtle ambient teal glow around the orb */}
+              <div className="absolute -inset-3 rounded-full bg-teal-500/20 blur-xl dark:bg-teal-400/20 pointer-events-none" />
+              <FluidOrb size={140} color="#14b8a6" className="relative shadow-lg" />
+            </div>
           </div>
         </div>
       </Container>
