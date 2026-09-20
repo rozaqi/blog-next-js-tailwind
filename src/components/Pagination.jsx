@@ -1,5 +1,6 @@
 import { ArticlesContext } from "@/context"
 import { useContext, useState, useEffect } from "react"
+import clsx from "clsx"
 
 export default function Pagination() {
   const { articles, setArticles, isFetch } = useContext(ArticlesContext);
@@ -25,53 +26,52 @@ export default function Pagination() {
     }
   }, [isFetch, defaultArticles, startIndex, limit, setArticles]);
 
-  return !isFetch && (
-    <nav aria-label="Page navigation">
-      <ul className="inline-flex">
-        {startIndex !== 0 && (
-          <li>
-            <button
-              className="focus:shadow-outline h-10 rounded-l-lg bg-white px-5 text-indigo-600 transition-colors duration-150 hover:bg-indigo-100"
-              onClick={() => {
-                setStartIndex((prev) => prev - limit)
-                setPage((prev) => prev - 1)
-              }}
-            >
-              Prev
-            </button>
-          </li>
-        )}
-        {[...Array(totalPage)].map((el, id) => (
-          <li key={id}>
-            <button
-              className={`${
-                id === page
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-white text-indigo-600'
-              } focus:shadow-outline h-10 px-5 transition-colors duration-150`}
-              onClick={() => {
-                setStartIndex(id * limit)
-                setPage(id)
-              }}
-            >
-              {id + 1}
-            </button>
-          </li>
+  return !isFetch && totalPage > 1 && (
+    <nav aria-label="Page navigation" className="mt-8 flex items-center gap-2">
+      {startIndex !== 0 && (
+        <button
+          type="button"
+          className="inline-flex h-9 items-center justify-center rounded-lg border border-zinc-200 bg-white px-3.5 text-xs font-medium text-zinc-700 shadow-2xs transition hover:bg-zinc-50 dark:border-zinc-700/80 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
+          onClick={() => {
+            setStartIndex((prev) => prev - limit)
+            setPage((prev) => prev - 1)
+          }}
+        >
+          Prev
+        </button>
+      )}
+      <div className="flex items-center gap-1.5">
+        {[...Array(totalPage)].map((_, id) => (
+          <button
+            key={id}
+            type="button"
+            className={clsx(
+              'inline-flex h-9 w-9 items-center justify-center rounded-lg text-xs font-medium transition shadow-2xs',
+              id === page
+                ? 'bg-teal-500 font-semibold text-white dark:bg-teal-400 dark:text-zinc-900'
+                : 'border border-zinc-200 bg-white text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700/80 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700'
+            )}
+            onClick={() => {
+              setStartIndex(id * limit)
+              setPage(id)
+            }}
+          >
+            {id + 1}
+          </button>
         ))}
-        {page + 1 !== totalPage && (
-          <li>
-            <button
-              className="focus:shadow-outline h-10 rounded-r-lg bg-white px-5 text-indigo-600 transition-colors duration-150 hover:bg-indigo-100"
-              onClick={() => {
-                setStartIndex((prev) => prev + limit)
-                setPage((prev) => prev + 1)
-              }}
-            >
-              Next
-            </button>
-          </li>
-        )}
-      </ul>
+      </div>
+      {page + 1 !== totalPage && (
+        <button
+          type="button"
+          className="inline-flex h-9 items-center justify-center rounded-lg border border-zinc-200 bg-white px-3.5 text-xs font-medium text-zinc-700 shadow-2xs transition hover:bg-zinc-50 dark:border-zinc-700/80 dark:bg-zinc-800/80 dark:text-zinc-300 dark:hover:bg-zinc-700"
+          onClick={() => {
+            setStartIndex((prev) => prev + limit)
+            setPage((prev) => prev + 1)
+          }}
+        >
+          Next
+        </button>
+      )}
     </nav>
   )
 }

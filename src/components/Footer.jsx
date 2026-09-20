@@ -21,8 +21,8 @@ export function Footer() {
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
-               
-                <NavLink href="/about">About</NavLink>
+                <NavLink href="/">Home</NavLink>
+                <NavLink href="/blog">Blog</NavLink>
               </div>
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
                 &copy; {new Date().getFullYear()} Abdul Rozaqi Wildan · Powered by <a href='https://nextjs.org/'>Next.JS</a> & <a href='https://tailwindui.com/'>Tailwind CSS</a>.
