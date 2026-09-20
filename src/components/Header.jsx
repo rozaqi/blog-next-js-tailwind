@@ -168,36 +168,74 @@ function DesktopNavigation(props) {
 }
 
 function ModeToggle() {
-  function disableTransitionsTemporarily() {
-    document.documentElement.classList.add('[&_*]:!transition-none')
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
-    }, 0)
-  }
+  function toggleMode(event) {
+    const isAppearanceTransition =
+      typeof document !== 'undefined' &&
+      'startViewTransition' in document &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  function toggleMode() {
-    disableTransitionsTemporarily()
+    const updateDOM = () => {
+      let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+      let isSystemDarkMode = darkModeMediaQuery.matches
+      let isDarkMode = document.documentElement.classList.toggle('dark')
 
-    let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    let isSystemDarkMode = darkModeMediaQuery.matches
-    let isDarkMode = document.documentElement.classList.toggle('dark')
-
-    if (isDarkMode === isSystemDarkMode) {
-      delete window.localStorage.isDarkMode
-    } else {
-      window.localStorage.isDarkMode = isDarkMode
+      if (isDarkMode === isSystemDarkMode) {
+        delete window.localStorage.isDarkMode
+      } else {
+        window.localStorage.isDarkMode = isDarkMode
+      }
     }
+
+    if (!isAppearanceTransition) {
+      updateDOM()
+      return
+    }
+
+    // Get click position (or button center if triggered by keyboard)
+    const buttonRect = event.currentTarget.getBoundingClientRect()
+    const x = event.clientX && event.clientX > 0
+      ? event.clientX
+      : buttonRect.left + buttonRect.width / 2
+    const y = event.clientY && event.clientY > 0
+      ? event.clientY
+      : buttonRect.top + buttonRect.height / 2
+
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    )
+
+    const transition = document.startViewTransition(() => {
+      updateDOM()
+    })
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ]
+      document.documentElement.animate(
+        {
+          clipPath: clipPath,
+        },
+        {
+          duration: 550,
+          easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      )
+    })
   }
 
   return (
     <button
       type="button"
       aria-label="Toggle dark mode"
-      className="group flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-200 bg-white shadow-sm transition hover:bg-zinc-50 dark:border-zinc-700/80 dark:bg-zinc-800/80 dark:hover:bg-zinc-700"
+      className="group flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-200 bg-white shadow-sm transition-all duration-200 active:scale-90 hover:bg-zinc-50 dark:border-zinc-700/80 dark:bg-zinc-800/80 dark:hover:bg-zinc-700"
       onClick={toggleMode}
     >
-      <SunIcon className="h-5 w-5 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden" />
-      <MoonIcon className="hidden h-5 w-5 fill-zinc-700 stroke-zinc-400 transition dark:block dark:group-hover:stroke-zinc-200" />
+      <SunIcon className="h-5 w-5 fill-zinc-100 stroke-zinc-500 transition-transform duration-500 group-hover:rotate-45 group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden" />
+      <MoonIcon className="hidden h-5 w-5 fill-zinc-700 stroke-zinc-400 transition-transform duration-500 group-hover:-rotate-12 dark:block dark:group-hover:stroke-zinc-200" />
     </button>
   )
 }
