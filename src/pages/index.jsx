@@ -318,23 +318,32 @@ export default function Home() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-600 dark:text-teal-400">
-                  Featured Architecture & Focus
+                  Featured Focus & Mission
                 </p>
                 <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
-                  Production & Lab
+                  Reliability & AI Ops
                 </span>
               </div>
               <h3 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-2xl">
-                Cloud Platforms, Distributed Storage & High Availability
+                High Availability Systems, Task Automation & AI Agentic
               </h3>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base">
-                Architecting, managing, and stress-testing production infrastructure and dedicated bare-metal labs: multi-node Apache CloudStack and OpenStack setups, KVM/Proxmox virtualization, Ceph distributed block & object storage, and automated failover architectures.
+                Operating as a Systems Operations Engineer committed to ensuring production infrastructure is always available, reliable, and fault-tolerant. Actively developing automation to eliminate repetitive operational tasks, leveraging AI as an essential engineering tool, and exploring AI Agentic workflows for next-generation operations.
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
-                {['VMware', 'Proxmox', 'KVM', 'CloudStack', 'OpenStack', 'Ceph', 'Docker', 'Grafana', 'AI Ops'].map((tech) => (
+                {[
+                  'System Availability',
+                  'High Availability (HA)',
+                  'Task Automation',
+                  'Python & Bash',
+                  'AI as a Tool',
+                  'AI Agentic',
+                  'Incident Response',
+                  'Proactive Monitoring',
+                ].map((tech) => (
                   <span
                     key={tech}
-                    className="inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+                    className="inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
                   >
                     {tech}
                   </span>
@@ -358,7 +367,7 @@ export default function Home() {
               {experiences.map((exp, idx) => (
                 <div
                   key={idx}
-                  className="group rounded-2xl border border-zinc-200/70 bg-white p-5 shadow-2xs transition hover:border-zinc-300 hover:shadow-xs dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700 sm:p-6"
+                  className="group rounded-2xl border border-zinc-200/70 bg-white p-5 shadow-sm transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700 sm:p-6"
                 >
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                     <div>
@@ -409,7 +418,7 @@ export default function Home() {
               {technicalSkills.map((item) => (
                 <div
                   key={item.title}
-                  className="group flex flex-col justify-between rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-2xs transition hover:border-zinc-300 dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700"
+                  className="group flex flex-col justify-between rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-sm transition hover:border-zinc-300 dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700"
                 >
                   <div className="space-y-2">
                     <h3 className="text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
@@ -431,6 +440,64 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* Connect & Social Profiles Section */}
+          <section className="space-y-6">
+            <div className="flex items-center justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
+              <h2 className="text-2xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
+                Connect
+              </h2>
+              <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
+                Online Presence
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <Link
+                href="https://github.com/rozaqi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-sm transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 transition group-hover:bg-teal-50 group-hover:text-teal-600 dark:bg-zinc-800 dark:text-zinc-300 dark:group-hover:bg-teal-500/10 dark:group-hover:text-teal-400">
+                    <GitHubIcon className="h-6 w-6 fill-current" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-zinc-900 transition group-hover:text-teal-600 dark:text-zinc-100 dark:group-hover:text-teal-400">
+                      GitHub
+                    </h3>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                      @rozaqi • Repositories & Code
+                    </p>
+                  </div>
+                </div>
+                <ArrowUpRightIcon className="h-5 w-5 text-zinc-400 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-600 dark:text-zinc-500 dark:group-hover:text-teal-400" />
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com/in/abdul-rozaqi-wildan-3196211a6/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between rounded-2xl border border-zinc-200/80 bg-white p-5 shadow-sm transition hover:border-zinc-300 hover:shadow-md dark:border-zinc-800/80 dark:bg-zinc-900/40 dark:hover:border-zinc-700"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-100 text-zinc-700 transition group-hover:bg-teal-50 group-hover:text-teal-600 dark:bg-zinc-800 dark:text-zinc-300 dark:group-hover:bg-teal-500/10 dark:group-hover:text-teal-400">
+                    <LinkedInIcon className="h-6 w-6 fill-current" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-zinc-900 transition group-hover:text-teal-600 dark:text-zinc-100 dark:group-hover:text-teal-400">
+                      LinkedIn
+                    </h3>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                      Abdul Rozaqi Wildan • Network
+                    </p>
+                  </div>
+                </div>
+                <ArrowUpRightIcon className="h-5 w-5 text-zinc-400 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-600 dark:text-zinc-500 dark:group-hover:text-teal-400" />
+              </Link>
             </div>
           </section>
 
