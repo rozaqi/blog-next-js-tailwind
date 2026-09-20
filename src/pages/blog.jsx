@@ -221,7 +221,7 @@ export default function Blog({ data }) {
               />
             </div>
           </div>
-          <div className="flex items-center justify-start">
+          <div className="flex items-center justify-center lg:justify-start">
             <div className="relative flex items-center justify-center">
               {/* Subtle ambient teal glow around the orb */}
               <div className="absolute -inset-3 rounded-full bg-teal-500/20 blur-xl dark:bg-teal-400/20 pointer-events-none" />
