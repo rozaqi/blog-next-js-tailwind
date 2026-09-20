@@ -317,7 +317,7 @@ export default function About() {
                 <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-600 dark:text-teal-400">
                   Featured Architecture & Focus
                 </p>
-                <span className="inline-flex items-center rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700 dark:bg-teal-950/60 dark:text-teal-300">
+                <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
                   Production & Lab
                 </span>
               </div>
@@ -372,10 +372,10 @@ export default function About() {
                         {exp.period}
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <span className="inline-flex rounded-full bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                        <span className="inline-flex rounded-full border border-zinc-200 bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
                           {exp.duration}
                         </span>
-                        <span className="inline-flex rounded-full bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-700 dark:bg-teal-950/60 dark:text-teal-300">
+                        <span className="inline-flex rounded-full border border-teal-200 bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-700 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
                           {exp.employmentType}
                         </span>
                       </div>
@@ -453,7 +453,7 @@ export default function About() {
 
           {/* Philosophy / Quote Card */}
           <section className="space-y-6">
-            <div className="relative overflow-hidden rounded-2xl border border-teal-500/20 bg-gradient-to-r from-teal-500/10 via-sky-500/5 to-transparent p-6 dark:border-teal-400/20 dark:from-teal-950/40">
+            <div className="relative overflow-hidden rounded-2xl border border-teal-500/20 bg-gradient-to-r from-teal-500/10 via-sky-500/5 to-transparent p-6 dark:border-teal-400/20 dark:from-teal-900/40">
               <div className="flex items-start gap-3">
                 <span className="flex-none rounded-md bg-teal-500/20 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-teal-700 dark:bg-teal-400/20 dark:text-teal-300">
                   Philosophy
