@@ -68,38 +68,38 @@ function TechBadge({ children, color = 'teal' }) {
 const experiences = [
   {
     period: 'Jan 2023 — Present',
-    role: 'System Operations Engineer',
+    role: 'Systems Operations Engineer',
     company: 'PT. Biznet Gio Cloud',
     description:
-      'Responsible for enterprise cloud infrastructure operations, high-availability virtualization systems, 24/7 incident handling, and platform reliability maintenance across multi-tenant environments.',
-    tags: ['OpenStack', 'Linux', 'Virtualization', 'Monitoring', 'Cloud Ops'],
+      'Responsible for production cloud infrastructure management, enterprise virtualization platforms, Ceph storage clusters, capacity planning, and critical incident resolution across multi-tenant environments.',
+    tags: ['OpenStack', 'Apache CloudStack', 'VMware', 'KVM', 'Ceph', 'Monitoring'],
   },
   {
     period: 'Jan 2022 — Jan 2023',
     role: 'Cloud Operations Engineer',
     company: 'PT. Boer Technology (Btech)',
     description:
-      'Managed cloud server provisioning, automation tasks, system health monitoring, and client cloud deployments with focus on uptime and security.',
-    tags: ['Linux', 'Cloud Computing', 'Bash', 'Docker', 'DevOps'],
+      'Operated Linux server fleets, cloud provisioning, routine maintenance automation, and client infrastructure monitoring ensuring performance optimization and uptime.',
+    tags: ['Linux', 'Cloud Platforms', 'Docker', 'Bash Automation', 'DevOps'],
   },
 ]
 
 const skillCategories = [
   {
-    title: 'Cloud & Virtualization',
-    skills: ['OpenStack', 'VMware vSphere', 'KVM', 'Biznet Gio Cloud', 'AWS (Basic)'],
+    title: 'Virtualization & Cloud',
+    skills: ['VMware vSphere', 'Proxmox VE', 'KVM Hypervisor', 'Apache CloudStack', 'OpenStack', 'Biznet Gio Cloud'],
   },
   {
-    title: 'OS & Administration',
-    skills: ['Ubuntu / Debian', 'RHEL / CentOS', 'System Hardening', 'Bash Scripting', 'Storage & LVM'],
+    title: 'Storage & Linux Infrastructure',
+    skills: ['Ceph Storage', 'Enterprise Storage / SAN', 'Ubuntu / Debian', 'RHEL / CentOS', 'System Hardening', 'LVM & ZFS'],
   },
   {
-    title: 'DevOps & Tooling',
-    skills: ['Docker', 'Kubernetes', 'CI/CD Pipelines', 'Git / GitHub', 'Ansible', 'Terraform'],
+    title: 'Automation & Containers',
+    skills: ['Docker', 'Infrastructure Automation', 'Bash Scripting', 'Ansible', 'CI/CD Pipelines', 'AI-Driven Operations'],
   },
   {
-    title: 'Networking & Observability',
-    skills: ['TCP/IP & Routing', 'DNS Management', 'Nginx Reverse Proxy', 'Prometheus & Grafana', 'VPN / WireGuard'],
+    title: 'Reliability & Operations',
+    skills: ['Production Incident Handling', 'Performance Optimization', 'Capacity Planning', 'Prometheus & Grafana', 'High Availability (HA)'],
   },
 ]
 
@@ -110,13 +110,13 @@ export default function About() {
         <title>About — Abdul Rozaqi Wildan</title>
         <meta
           name="description"
-          content="Portfolio and profile of Abdul Rozaqi Wildan, System Operations Engineer specializing in Cloud Computing, Linux System Administration, and DevOps."
+          content="Systems Operations Engineer specializing in Linux Infrastructure, Virtualization, Cloud Platforms, and Enterprise Storage."
         />
       </Head>
       <Container className="mt-12 sm:mt-20">
         <div className="mx-auto max-w-3xl space-y-16 sm:space-y-20">
           
-          {/* Header & Bio Section (Ren Lenon inspired) */}
+          {/* Header & Bio Section (Ren Lenon inspired + Spotlight styling) */}
           <section className="space-y-8">
             <div className="flex flex-col-reverse gap-6 sm:flex-row sm:items-center sm:justify-between">
               <div className="space-y-3">
@@ -176,28 +176,34 @@ export default function About() {
               </div>
             </div>
 
-            {/* Sub-headline */}
-            <div className="space-y-4">
+            {/* Headline & Bio Content */}
+            <div className="space-y-5">
               <h2 className="text-xl font-normal leading-snug tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-2xl">
-                System Operations Engineer{' '}
+                Systems Operations Engineer{' '}
                 <span className="font-light text-zinc-500 dark:text-zinc-400">
-                  — Cloud Infrastructure & DevOps
+                  — Linux Infrastructure, Virtualization, Cloud Platforms & Enterprise Storage
                 </span>
               </h2>
 
               <p className="text-base font-light leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg">
-                I am a System Operations Engineer with a passion for designing, operating, and automating reliable systems using
-                <TechBadge color="sky">Linux</TechBadge>
-                <TechBadge color="teal">Cloud Computing</TechBadge>
-                <TechBadge color="amber">DevOps</TechBadge>
-                <TechBadge color="indigo">OpenStack</TechBadge>
-                and
-                <TechBadge color="emerald">Virtualization</TechBadge>.
-                Graduated from SMKN 1 Cimahi majoring in Informatics, Networking, and Application Systems.
+                Systems Operations Engineer specializing in{' '}
+                <TechBadge color="sky">Linux Infrastructure</TechBadge>,{' '}
+                <TechBadge color="emerald">Virtualization</TechBadge>,{' '}
+                <TechBadge color="teal">Cloud Platforms</TechBadge>, and{' '}
+                <TechBadge color="amber">Enterprise Storage</TechBadge>.
+                Experienced in managing production environments, troubleshooting critical incidents, capacity planning, performance optimization, and infrastructure automation.
               </p>
 
               <p className="text-base font-light leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg">
-                I thrive on hands-on exploration and continuous learning inside custom lab environments — whether experimenting with bare-metal KVM hypervisors, VMware setups, automated provisioning, or cluster networking.
+                Hands-on with technologies including{' '}
+                <TechBadge color="indigo">VMware</TechBadge>,{' '}
+                <TechBadge color="amber">Proxmox</TechBadge>,{' '}
+                <TechBadge color="sky">KVM</TechBadge>,{' '}
+                <TechBadge color="teal">Apache CloudStack</TechBadge>,{' '}
+                <TechBadge color="rose">OpenStack</TechBadge>,{' '}
+                <TechBadge color="emerald">Ceph</TechBadge>,{' '}
+                <TechBadge color="sky">Docker</TechBadge>, and monitoring platforms.
+                Passionate about building reliable, scalable, and efficient systems while continuously exploring AI-driven operations and automation.
               </p>
 
               <div className="flex flex-wrap gap-3 pt-2">
@@ -227,20 +233,20 @@ export default function About() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-600 dark:text-teal-400">
-                  Featured Research & Lab
+                  Featured Architecture & Focus
                 </p>
-                <span className="inline-flex items-center rounded-full bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-700 dark:bg-teal-950/60 dark:text-teal-300">
-                  Active
+                <span className="inline-flex items-center rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-medium text-teal-700 dark:bg-teal-950/60 dark:text-teal-300">
+                  Production & Lab
                 </span>
               </div>
               <h3 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-2xl">
-                Dedicated Server Virtualization & Cloud Lab
+                Cloud Platforms, Distributed Storage & High Availability
               </h3>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base">
-                An ongoing home-lab and dedicated server environment for testing enterprise scenarios: building multi-node OpenStack architectures, KVM virtualization on bare-metal, VMware clustering, network segmentation, and disaster recovery drills.
+                Architecting, managing, and stress-testing production infrastructure and dedicated bare-metal labs: multi-node Apache CloudStack and OpenStack setups, KVM/Proxmox virtualization, Ceph distributed block & object storage, and automated failover architectures.
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
-                {['KVM', 'OpenStack', 'VMware', 'Linux Hardening', 'Ansible', 'Proxmox'].map((tech) => (
+                {['VMware', 'Proxmox', 'KVM', 'CloudStack', 'OpenStack', 'Ceph', 'Docker', 'Grafana', 'AI Ops'].map((tech) => (
                   <span
                     key={tech}
                     className="inline-flex rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
@@ -307,7 +313,7 @@ export default function About() {
                 Technical Skills
               </h2>
               <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500">
-                Tools & Stack
+                Core Competencies
               </span>
             </div>
 
@@ -335,25 +341,12 @@ export default function About() {
             </div>
           </section>
 
-          {/* Beyond Code & Philosophy */}
+          {/* Philosophy / Quote Card */}
           <section className="space-y-6">
-            <div className="flex items-center justify-between border-b border-zinc-200 pb-3 dark:border-zinc-800">
-              <h2 className="text-2xl font-light tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">
-                Beyond Work
-              </h2>
-            </div>
-
-            <div className="space-y-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-base">
-              <p>
-                When I am not in front of terminal windows or troubleshooting servers, I enjoy watching films across genres like survival, mystery, horror, sci-fi adventure, and animation.
-              </p>
-            </div>
-
-            {/* Styled Quote Card (Replacing raw bootstrap alert) */}
             <div className="relative overflow-hidden rounded-2xl border border-teal-500/20 bg-gradient-to-r from-teal-500/10 via-sky-500/5 to-transparent p-6 dark:border-teal-400/20 dark:from-teal-950/40">
               <div className="flex items-start gap-3">
                 <span className="flex-none rounded-md bg-teal-500/20 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-teal-700 dark:bg-teal-400/20 dark:text-teal-300">
-                  Quote
+                  Philosophy
                 </span>
                 <blockquote className="italic text-zinc-800 dark:text-zinc-200">
                   &ldquo;Do everything with pleasure, so it doesn&apos;t burden your mind.&rdquo;
