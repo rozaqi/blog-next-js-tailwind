@@ -115,7 +115,7 @@ const experiences = [
   {
     company: 'Boer Technology (Btech)',
     companyShort: 'Boer Technology (Btech)',
-    role: 'Student Internship - DevOps Track',
+    role: 'Student Internship',
     employmentType: 'Internship',
     period: 'Aug 2021 - Dec 2021',
     duration: '5 mos',
@@ -132,7 +132,7 @@ const experiences = [
   {
     company: 'Boer Technology (Btech)',
     companyShort: 'Boer Technology (Btech)',
-    role: 'Professional Intern - Cloud Engineer Track',
+    role: 'Professional Intern',
     employmentType: 'Internship',
     period: 'Jun 2021 - Aug 2021',
     duration: '3 mos',
