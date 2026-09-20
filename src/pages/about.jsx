@@ -83,7 +83,7 @@ const experiences = [
     companyShort: 'Biznet Gio Cloud',
     role: 'System Operations Engineer',
     employmentType: 'Contract',
-    period: 'Jan 2023 — Present',
+    period: 'Jan 2023 - Present',
     duration: '3 yrs 9 mos',
     location: 'Central Jakarta, Jakarta, Indonesia · Hybrid',
     highlights: [
@@ -99,7 +99,7 @@ const experiences = [
     companyShort: 'Boer Technology (Btech)',
     role: 'Cloud Operations Engineer',
     employmentType: 'Full-time',
-    period: 'Jan 2022 — Jan 2023',
+    period: 'Jan 2022 - Jan 2023',
     duration: '1 yr 1 mo',
     location: 'Bogor, West Java, Indonesia',
     highlights: [
@@ -115,9 +115,9 @@ const experiences = [
   {
     company: 'Boer Technology (Btech)',
     companyShort: 'Boer Technology (Btech)',
-    role: 'Student Internship — DevOps Track',
+    role: 'Student Internship - DevOps Track',
     employmentType: 'Internship',
-    period: 'Aug 2021 — Dec 2021',
+    period: 'Aug 2021 - Dec 2021',
     duration: '5 mos',
     location: 'Kota Bogor, West Java, Indonesia',
     highlights: [
@@ -132,9 +132,9 @@ const experiences = [
   {
     company: 'Boer Technology (Btech)',
     companyShort: 'Boer Technology (Btech)',
-    role: 'Professional Intern — Cloud Engineer Track',
+    role: 'Professional Intern - Cloud Engineer Track',
     employmentType: 'Internship',
-    period: 'Jun 2021 — Aug 2021',
+    period: 'Jun 2021 - Aug 2021',
     duration: '3 mos',
     location: 'Bogor, West Java, Indonesia',
     highlights: [
@@ -169,7 +169,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About — Abdul Rozaqi Wildan</title>
+        <title>About - Abdul Rozaqi Wildan</title>
         <meta
           name="description"
           content="Systems Operations Engineer specializing in Linux Infrastructure, Virtualization, Cloud Platforms, and Enterprise Storage."
@@ -243,7 +243,7 @@ export default function About() {
               <h2 className="text-xl font-normal leading-snug tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-2xl">
                 Systems Operations Engineer{' '}
                 <span className="font-light text-zinc-500 dark:text-zinc-400">
-                  — Linux Infrastructure, Virtualization, Cloud Platforms & Enterprise Storage
+                  - Linux Infrastructure, Virtualization, Cloud Platforms & Enterprise Storage
                 </span>
               </h2>
 
