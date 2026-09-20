@@ -258,6 +258,7 @@ export function Header() {
               <Image
                 src={avatarImage}
                 alt="Abdul Rozaqi Wildan"
+                sizes="36px"
                 className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                 priority
               />

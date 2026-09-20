@@ -289,6 +289,7 @@ export default function Home({ articles = [] }) {
                     src={portraitImage}
                     alt="Abdul Rozaqi Wildan"
                     priority
+                    sizes="(min-width: 640px) 144px, 112px"
                     className="h-full w-full object-cover object-center transition duration-300 hover:scale-105"
                   />
                 </div>
