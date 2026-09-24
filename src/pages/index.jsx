@@ -98,6 +98,13 @@ function CommandLineIcon(props) {
   )
 }
 
+const roles = [
+  'Systems Operations Engineer',
+  'Linux System Administrator',
+  'Site Reliability Engineer',
+  'IT Infrastructure Engineer',
+]
+
 const selectedWork = [
   {
     title: 'Cloud Infrastructure Operations',
@@ -314,7 +321,7 @@ export default function Home({ articles = [] }) {
         <title>Abdul Rozaqi Wildan - Systems Operations Engineer</title>
         <meta
           name="description"
-          content="Systems Operations Engineer building reliable cloud, virtualization, and storage infrastructure for production environments."
+          content="Systems Operations Engineer, Linux System Administrator, SRE, and IT Infrastructure Engineer building reliable cloud, virtualization, and storage infrastructure for production environments."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -332,8 +339,17 @@ export default function Home({ articles = [] }) {
                   <CheckBadgeIcon className="h-6 w-6 text-teal-500 dark:text-teal-400" title="Verified Professional" />
                 </div>
                 
-                <p className="text-lg font-medium text-teal-700 dark:text-teal-400 sm:text-xl">
-                  Systems Operations Engineer
+                <p className="flex flex-wrap gap-y-1 text-lg font-medium leading-snug text-teal-700 dark:text-teal-400 sm:text-xl">
+                  {roles.map((role, idx) => (
+                    <span key={role} className="whitespace-nowrap">
+                      {role}
+                      {idx < roles.length - 1 && (
+                        <span aria-hidden="true" className="mx-2 text-zinc-300 dark:text-zinc-600">
+                          /
+                        </span>
+                      )}
+                    </span>
+                  ))}
                 </p>
 
                 <div className="flex items-center gap-3 text-sm text-zinc-600 dark:text-zinc-400">
