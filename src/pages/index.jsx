@@ -354,7 +354,7 @@ export default function Home({ articles = [] }) {
 
                 <div className="flex items-center gap-3 text-sm text-zinc-600 dark:text-zinc-400">
                   <span className="flex items-center gap-1.5 font-medium text-emerald-700 dark:text-emerald-400">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="h-2 w-2 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20" />
                     Open to Collaboration
                   </span>
                   <span>•</span>
