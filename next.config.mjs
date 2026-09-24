@@ -8,6 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
+    optimizeCss: true,
     newNextLinkBehavior: true,
     scrollRestoration: true,
   },
