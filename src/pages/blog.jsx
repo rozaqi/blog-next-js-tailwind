@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { ArticlesContext } from '@/context'
+import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -16,7 +16,7 @@ import {
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function MailIcon(props) {
   return (
@@ -43,44 +43,53 @@ function MailIcon(props) {
 
 
 
-function Article({ article, loading }) {
-  return loading ? (
-    <Card as="article" className="animate-pulse">
-      <Card.Title>
-        <div className="rounded bg-slate-700 text-slate-700">
-          Loading article...
-        </div>
-      </Card.Title>
-      <Card.Eyebrow
-        as="time"
-        decorate
-        className="rounded bg-slate-700 text-slate-700"
-      >
-        Recent
-      </Card.Eyebrow>
-      <Card.Description className="rounded bg-slate-700 text-slate-700">
-        Loading article description and content...
-      </Card.Description>
-      <Card.Cta>
-        <div className="rounded bg-slate-700 text-slate-700">Read article</div>
-      </Card.Cta>
-    </Card>
-  ) : (
+const TOPICS = [
+  'Linux Administration',
+  'Cloud Infrastructure',
+  'Proxmox & VMware',
+  'OpenStack & CloudStack',
+  'Storage & Ceph',
+  'Incident Troubleshooting',
+  'Prometheus & Grafana',
+  'Bash & Python Scripting',
+]
+
+const ARTICLES_PER_PAGE = 3
+
+function Article({ article }) {
+  return (
     <Card as="article">
       <Card.Title href={`/articles/${article.slug}`}>
         {article.title}
       </Card.Title>
       <Card.Eyebrow
-        as="time"
-        dateTime={article.date}
+        as="p"
         decorate
         className="dark:text-zinc-400"
       >
-        {formatDate(article.date)}
+        <time dateTime={article.date}>{formatDate(article.date)}</time>
+        {article.readingTime && (
+          <>
+            <span aria-hidden="true" className="mx-2">·</span>
+            <span>{article.readingTime} min read</span>
+          </>
+        )}
       </Card.Eyebrow>
       <Card.Description className="dark:text-zinc-400">
         {article.description}
       </Card.Description>
+      {article.tags?.length > 0 && (
+        <ul aria-label="Tags" className="relative z-10 mt-3 flex flex-wrap gap-1.5">
+          {article.tags.map((tag) => (
+            <li
+              key={tag}
+              className="inline-flex rounded-md bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-800 dark:bg-teal-500/10 dark:text-teal-300"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+      )}
       <Card.Cta>Read article</Card.Cta>
     </Card>
   )
@@ -143,56 +152,105 @@ function TagIcon(props) {
   )
 }
 
-function FeaturedTopics() {
-  let topics = [
-    'Linux Administration',
-    'Cloud Infrastructure',
-    'Proxmox & VMware',
-    'OpenStack & CloudStack',
-    'Storage & Ceph',
-    'Incident Troubleshooting',
-    'Prometheus & Grafana',
-    'Bash & Python Scripting',
-  ]
+function TopicFilter({ topics, counts, total, active, onChange }) {
+  let chip =
+    'inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition'
+  let idle =
+    'border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-300 dark:hover:bg-zinc-700'
+  let selected =
+    'border-teal-500 bg-teal-500 text-white dark:border-teal-400 dark:bg-teal-400 dark:text-zinc-900'
+  let disabled =
+    'cursor-not-allowed border-dashed border-zinc-200 bg-transparent text-zinc-400 dark:border-zinc-700/80 dark:text-zinc-500'
 
   return (
-    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+    <div className="mb-12">
+      <h2 className="flex items-center text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <TagIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Featured Topics</span>
+        <span className="ml-3">Filter by topic</span>
       </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Core technical themes and domains explored across the articles.
-      </p>
-      <div className="mt-4 flex flex-wrap gap-1.5">
-        {topics.map((topic) => (
-          <span
-            key={topic}
-            className="inline-flex rounded-md border border-dashed border-zinc-200 bg-zinc-50 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:border-zinc-700/80 dark:bg-zinc-800/50 dark:text-zinc-300"
-          >
-            {topic}
-          </span>
-        ))}
+      <div role="group" aria-label="Filter articles by topic" className="mt-4 flex flex-wrap gap-2">
+        <button
+          type="button"
+          aria-pressed={active === null}
+          onClick={() => onChange(null)}
+          className={clsx(chip, active === null ? selected : idle)}
+        >
+          All
+          <span className="opacity-70">{total}</span>
+        </button>
+        {topics.map((topic) => {
+          let count = counts[topic] ?? 0
+          let isActive = active === topic
+          return (
+            <button
+              key={topic}
+              type="button"
+              aria-pressed={isActive}
+              disabled={count === 0}
+              title={count === 0 ? 'No articles on this topic yet' : undefined}
+              onClick={() => onChange(isActive ? null : topic)}
+              className={clsx(chip, count === 0 ? disabled : isActive ? selected : idle)}
+            >
+              {topic}
+              {count > 0 && <span className="opacity-70">{count}</span>}
+            </button>
+          )
+        })}
       </div>
     </div>
   )
 }
 
-export default function Blog({ data }) {
-  const [articles, setArticles] = useState([])
-  const [isFetch, setIsFetch] = useState(true)
+function useMediaQuery(query) {
+  let [matches, setMatches] = useState(false)
 
   useEffect(() => {
-    setArticles(data || [])
-    setTimeout(() => {
-      setIsFetch(false)
-    }, 1000)
-  }, [data])
+    let mql = window.matchMedia(query)
+    let update = () => setMatches(mql.matches)
+    update()
+    mql.addEventListener('change', update)
+    return () => mql.removeEventListener('change', update)
+  }, [query])
+
+  return matches
+}
+
+export default function Blog({ data = [] }) {
+  let [topic, setTopic] = useState(null)
+  let [page, setPage] = useState(0)
+  let listRef = useRef(null)
+  // WebGL orb is decorative: only mount it on sm+ screens, never on phones
+  let showOrb = useMediaQuery('(min-width: 640px)')
+
+  let counts = {}
+  for (let article of data) {
+    for (let tag of article.tags ?? []) {
+      counts[tag] = (counts[tag] ?? 0) + 1
+    }
+  }
+  let topics = [...TOPICS, ...Object.keys(counts).filter((t) => !TOPICS.includes(t))]
+
+  let filtered = topic ? data.filter((a) => a.tags?.includes(topic)) : data
+  let totalPage = Math.ceil(filtered.length / ARTICLES_PER_PAGE)
+  let visible = filtered.slice(
+    page * ARTICLES_PER_PAGE,
+    (page + 1) * ARTICLES_PER_PAGE
+  )
+
+  function changeTopic(next) {
+    setTopic(next)
+    setPage(0)
+  }
+
+  function changePage(next) {
+    setPage(next)
+    listRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <>
       <Head>
-        <title>Abdul Rozaqi Wildan - Systems Operations Engineer</title>
+        <title>Blog – Abdul Rozaqi Wildan</title>
         <meta
           name="description"
           content="Articles and writing on Linux, Cloud Platforms, Virtualization, and Systems Operations."
@@ -221,36 +279,44 @@ export default function Blog({ data }) {
               />
             </div>
           </div>
-          <div className="flex items-center justify-center lg:justify-start">
-            <div className="relative flex items-center justify-center">
+          <div
+            aria-hidden="true"
+            className="hidden items-center justify-center sm:flex lg:justify-start"
+          >
+            <div className="relative flex h-[140px] w-[140px] items-center justify-center">
               {/* Subtle ambient teal glow around the orb */}
-              <div className="absolute -inset-3 rounded-full bg-teal-500/20 blur-xl dark:bg-teal-400/20 pointer-events-none" />
-              <FluidOrb size={140} color="#14b8a6" className="relative shadow-lg" />
+              <div className="pointer-events-none absolute -inset-3 rounded-full bg-teal-500/20 blur-xl dark:bg-teal-400/20" />
+              {showOrb && (
+                <FluidOrb size={140} color="#14b8a6" className="relative shadow-lg" />
+              )}
             </div>
           </div>
         </div>
       </Container>
-      <Container className="mt-24 md:mt-14">
+      <Container className="mt-16 md:mt-14">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div>
-            <div className="mb-16 flex flex-col gap-16">
-              {isFetch
-                ? [...Array(3)].map((el, id) => (
-                    <Article key={id} loading />
-                  ))
-                : articles.map((article) => (
-                    <Article key={article.slug} article={article} />
-                  ))}
+          <div ref={listRef} className="scroll-mt-24">
+            <TopicFilter
+              topics={topics}
+              counts={counts}
+              total={data.length}
+              active={topic}
+              onChange={changeTopic}
+            />
+            <div className="flex flex-col gap-16">
+              {visible.map((article) => (
+                <Article key={article.slug} article={article} />
+              ))}
+              {visible.length === 0 && (
+                <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  No articles on this topic yet.
+                </p>
+              )}
             </div>
-            <ArticlesContext.Provider
-              value={{ articles, setArticles, isFetch }}
-            >
-              <Pagination />
-            </ArticlesContext.Provider>
+            <Pagination page={page} totalPage={totalPage} onChange={changePage} />
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />
-            <FeaturedTopics />
           </div>
         </div>
       </Container>
